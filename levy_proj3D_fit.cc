@@ -87,7 +87,7 @@ double logLikelihood(const double *params)
 int main(int argc, char** argv)
 {
 	// Initialize Levy reader object
-  myLevy_reader = new Levy_reader("levy_proj3D_values.dat"); //"levy_values_20250322_ultimate_v2_last_final.dat"
+  myLevy_reader = new Levy_reader("levy_proj3D_values.dat"); // Download this file from https://csanad.web.elte.hu/phys/levy_proj3D_values.dat
 	
 	// Obtain histograms from data file
 	TFile* infile = new TFile("AuAu_7p7_drho_merged.root");
