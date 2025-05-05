@@ -24,8 +24,6 @@
 // ROOT Math
 #include <Math/Factory.h>
 #include <Math/Functor.h>
-#include <TMatrixDSym.h>
-#include <TMatrixDSymEigen.h>
 
 // Levy reader
 #include "Levy_proj_reader.h"
@@ -35,10 +33,10 @@ using namespace std;
 Levy_reader* myLevy_reader;
 
 double fit_min = 1.;
-double fit_max =50.;
+double fit_max = 50.;
 
 const int NDIR = 3;
-const int NPAR = NDIR + 2; //N, alpha, Rout, Rside, Rlong
+const int NPAR = NDIR + 2; //alpha, Rout, Rside, Rlong, N
 int NDF; // For tracking the number of degrees of freedom in the fit
 
 std::vector<TH1*> histograms;
@@ -68,11 +66,10 @@ double logLikelihood(const double *params)
     for (int ibin = 1; ibin <= histograms[idir]->GetNbinsX(); ++ibin)
     {
       double x = histograms[idir]->GetXaxis()->GetBinCenter(ibin);
-      if(x > fit_max) continue;
-      if(x < fit_min) continue;
-      double binVolume = ( histograms[idir]->GetXaxis()->GetBinWidth(ibin) );
+      if(x > fit_max || x < fit_min) continue;
+      double binwidth = histograms[idir]->GetXaxis()->GetBinWidth(ibin);
       double observed = histograms[idir]->GetBinContent(ibin);
-      double expected = LevyProj1DFunc(&x, thispar)*binVolume*integral;
+      double expected = LevyProj1DFunc(&x, thispar)*binwidth*integral;
       if(expected <= 0.) continue; // Avoid log(0) or negative expected values
       if(observed != 0.)
         logL += expected + observed*log(observed/expected) - observed;
@@ -90,10 +87,10 @@ int main(int argc, char** argv)
   myLevy_reader = new Levy_reader("levy_proj3D_values.dat"); // Download this file from https://csanad.web.elte.hu/phys/levy_proj3D_values.dat
 	
 	// Obtain histograms from data file
-	TFile* infile = new TFile("AuAu_7p7_drho_merged.root");
-	histograms.push_back((TH1*)infile->Get("D_out_LCMS_KT3"));
-	histograms.push_back((TH1*)infile->Get("D_side_LCMS_KT3"));
-	histograms.push_back((TH1*)infile->Get("D_long_LCMS_KT3"));
+	TFile* infile = new TFile("AuAu_7p7_drho_merged.root"); // An example file
+	histograms.push_back((TH1*)infile->Get("D_out_LCMS_KT3")); // An example KT bin
+	histograms.push_back((TH1*)infile->Get("D_side_LCMS_KT3")); // An example KT bin
+	histograms.push_back((TH1*)infile->Get("D_long_LCMS_KT3")); // An example KT bin
 
   // Create the minimizer
   ROOT::Math::Minimizer* minimizer = ROOT::Math::Factory::CreateMinimizer("Minuit2", "Migrad");
