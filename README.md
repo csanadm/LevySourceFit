@@ -13,6 +13,6 @@ This package contains a calculations of the above-mentioned angular average and 
 ### Libraries
 - [**Levy_proj_reader.cpp**](Levy_proj_reader.cpp): The main calculator class, containing the reader and evaluator (including interpolation) of the binary table
 - [**Levy_proj_reader.h**](Levy_proj_reader.h): Header file for the `Levy_proj_reader` class
-- [**levy_1Davg_fit.cpp**](levy_1Davg_fit.cpp): Reading the angular average and fitting it to some simulated data.
-- [**levy_proj3D_fit.cpp**](levy_proj3D_fit.cpp): Reading the 3 projections (out, side, long) and fitting them simultaneously to some simulated data.
+- [**levy_1Davg_fit.cc**](levy_1Davg_fit.cc): Reading the angular average and fitting it to some simulated data.
+- [**levy_proj3D_fit.cc**](levy_proj3D_fit.cc): Reading the 3 projections (out, side, long) and fitting them simultaneously to some simulated data.
 - [**my_includes.h**](my_includes.h): A long and general list of includes, can be substituted as the user wishes
