@@ -15,6 +15,7 @@ This package contains a calculations of the above-mentioned angular average and 
 - [**Levy_proj_reader.h**](Levy_proj_reader.h): Header file for the `Levy_proj_reader` class
 - [**levy_1Davg_fit.cc**](levy_1Davg_fit.cc): Reading the angular average and fitting it to some simulated data.
 - [**levy_proj3D_fit.cc**](levy_proj3D_fit.cc): Reading the 3 projections (out, side, long) and fitting them simultaneously to some simulated data.
+- [**create_example_plots.cc**](create_example_plots.cc): Creating example plots for the angular average and the projections
 - [**my_includes.h**](my_includes.h): A long and general list of includes, can be substituted as the user wishes
 
 ## Examples
