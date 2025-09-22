@@ -16,3 +16,12 @@ This package contains a calculations of the above-mentioned angular average and 
 - [**levy_1Davg_fit.cc**](levy_1Davg_fit.cc): Reading the angular average and fitting it to some simulated data.
 - [**levy_proj3D_fit.cc**](levy_proj3D_fit.cc): Reading the 3 projections (out, side, long) and fitting them simultaneously to some simulated data.
 - [**my_includes.h**](my_includes.h): A long and general list of includes, can be substituted as the user wishes
+
+## Examples
+Below are example plots of the 1D angular average of the 3D Lévy distribution and the 1D projections of the 3D Lévy distribution.
+
+### 1D Angular Average
+<img width="500" alt="levy_1Davg_example" src="https://github.com/user-attachments/assets/1735591b-d67b-4f24-9649-3bff5e9cdb62" />
+
+### 1D Projections
+<img width="500" alt="levy_proj3D_example" src="https://github.com/user-attachments/assets/c02add73-7b65-4ef4-b459-3e5e2f513bea" />
