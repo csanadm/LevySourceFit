@@ -4,6 +4,12 @@ Code for calculating angular average and projections of a full 3D Lévy-stable d
 ## Description
 This package contains a calculations of the above-mentioned angular average and projections, as well as fitting and plotting codes. These require `ROOT` (with `Minuit2`). Furthermore, a binary table is required to run the calculations (as they are too slow to do "on the fly"). This binary table is not included in the github package, but can instead be downloaded from https://csanad.web.elte.hu/phys/levy_proj3D_values.dat
 
+
+## Dependencies
+The code requires the following dependencies to be installed:
+- [**ROOT**](https://root.cern/): A data analysis framework. `Minuit2` is also required for fitting.
+- **Binary data table**: The calculations require a binary table of pre-calculated values. This can be downloaded from https://csanad.web.elte.hu/phys/levy_proj3D_values.dat.
+
 ## File content
 
 ### Basics
