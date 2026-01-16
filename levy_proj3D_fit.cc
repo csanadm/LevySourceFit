@@ -62,7 +62,7 @@ double logLikelihood(const double *params)
     thispar[0] = alpha;
     thispar[1] = params[idir+1]; // idir = 0,1,2 -> Rout,Rside,Rlong; but Rout=param[1], Rside=param[2], Rlong=param[3];
     thispar[2] = N;
-    double integral = histograms[idir]->Integral();
+    double integral = histograms[idir]->Integral(0,histograms[idir]->GetNbinsX()+1);
     for (int ibin = 1; ibin <= histograms[idir]->GetNbinsX(); ++ibin)
     {
       double x = histograms[idir]->GetXaxis()->GetBinCenter(ibin);
@@ -199,6 +199,7 @@ int main(int argc, char** argv)
 	delete c1;
   return 0;
 }
+
 
 
 
