@@ -53,7 +53,7 @@ double myChi2(const double *params)
 {
   NDF = 0;
   double chi2 = 0.0;
-  double integral = histogram->Integral();
+  double integral = histogram->Integral(0,histogram->GetNbinsX()+1);
   for (int ibin = 1; ibin <= histogram->GetNbinsX(); ++ibin)
   {
     double x = histogram->GetXaxis()->GetBinCenter(ibin);
@@ -185,6 +185,7 @@ int main(int argc, char** argv)
 	delete c1;
   return 0;
 }
+
 
 
 
