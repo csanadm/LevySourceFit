@@ -121,7 +121,7 @@ int main(int argc, char** argv)
   TF1* f_levy_func_fullrange;
 	
 	// Rescale histogram for plotting
-  double integral = histogram->Integral();
+  double integral = histogram->Integral(0,histogram->GetNbinsX()+1);
   for (int ibin = 1; ibin <= histogram->GetNbinsX(); ibin++)
   {
     double content = histogram->GetBinContent(ibin);
@@ -185,6 +185,7 @@ int main(int argc, char** argv)
 	delete c1;
   return 0;
 }
+
 
 
 
